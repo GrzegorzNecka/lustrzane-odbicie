@@ -1,14 +1,17 @@
 import "./style.css";
 
 document.addEventListener("DomContentLoaded", () => {
-  const input = document.querySelector(".text-input"),
-    mirror = document.querySelector(".mirror");
-
-  console.log(input);
-  console.log(mirror);
-
-  input.addEventListener("keyup", e => {
-    console.log(input.value);
-    console.log(e);
-  });
+  console.log("loaded");
 });
+
+const input = document.querySelector(".text-input"),
+  mirror = document.querySelector(".mirror");
+
+
+
+const setMirror= e => {
+  const value = e.target.value;
+  mirror.textContent = [...value].reverse().join("");
+};
+
+input.addEventListener("keyup", e => setMirror(e));
